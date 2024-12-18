@@ -13,7 +13,7 @@ jobs:
         run: |
           echo -e "in GitHub Actions"
   
-  fail-if-not-approved:
+  pr-not-approved:
     if: failure()
     runs-on: ubuntu-latest
     steps:
