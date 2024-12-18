@@ -13,11 +13,3 @@ jobs:
         run: |
           echo -e "in GitHub Actions"
   
-  pr-not-approved:
-    if: failure()
-    runs-on: ubuntu-latest
-    steps:
-      - name: Workflow Failed
-        run: |
-          echo "Workflow failed because the pull request was not approved."
-          exit 1
