@@ -1,0 +1,15 @@
+name: Code Format Check
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  format-check:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.review.state == 'approved' }}
+    steps:
+      - name: echo print
+        run: |
+          echo -e "in GitHub Actions"
+  
