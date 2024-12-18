@@ -1,10 +1,8 @@
 name: Code Format Check
 
 on:
-  pull_request:
-    branches:
-      - main
-    
+  pull_request_review:
+    types: [submitted]
 
 jobs:
   format-check:
@@ -14,4 +12,12 @@ jobs:
       - name: echo print
         run: |
           echo -e "in GitHub Actions"
-          
+  
+  fail-if-not-approved:
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Workflow Failed
+        run: |
+          echo "Workflow failed because the pull request was not approved."
+          exit 1
